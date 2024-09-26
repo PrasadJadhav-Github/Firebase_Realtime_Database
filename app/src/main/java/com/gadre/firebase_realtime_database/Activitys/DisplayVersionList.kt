@@ -4,10 +4,13 @@ import android.R
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import com.gadre.firebase_realtime_database.Adapters.VersionNotesAdapter
 import com.gadre.firebase_realtime_database.databinding.ActivityDisplayVersionListBinding
 
 class DisplayVersionList : AppCompatActivity() {
     private  lateinit var binding: ActivityDisplayVersionListBinding
+    private  lateinit var versionNotesAdapter: VersionNotesAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityDisplayVersionListBinding.inflate(layoutInflater)
