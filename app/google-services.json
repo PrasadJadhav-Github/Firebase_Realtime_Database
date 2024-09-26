@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "527012905111",
+    "project_id": "mvvm-architecture-60edf",
+    "storage_bucket": "mvvm-architecture-60edf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:527012905111:android:48ea9a8a0e226f8ccc29d2",
+        "android_client_info": {
+          "package_name": "com.gadre.firebase_realtime_database"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiIHtULc5oRymCg-D_KxEYqSQhyMfIp7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
