@@ -10,9 +10,19 @@ class TVersionNotesRepository {
 
     // Function to fetch version notes
     suspend fun fetchVersionNotes(): List<TVersionNotes>? {
-      return  try {
+        return try {
             val snapshot = database.get().await()
-            snapshot.children.mapNotNull { it.getValue(TVersionNotes::class.java) }
+            val tVersionNotesList : MutableList<TVersionNotes> = mutableListOf()
+            val children = snapshot.children
+
+            children.forEach {
+                val tVersionInstance = it.getValue(TVersionNotes::class.java)
+                if (tVersionInstance != null) {
+                    tVersionNotesList.add(tVersionInstance)
+                }
+            }
+
+            tVersionNotesList // Return  list
         } catch (e: Exception) {
             e.printStackTrace()
             null

@@ -8,7 +8,7 @@ import com.gadre.firebase_realtime_database.Models.TVersionNotes
 import com.gadre.firebase_realtime_database.R
 import com.gadre.firebase_realtime_database.databinding.VersionNotesItemviewBinding
 
-class VersionNotesAdapter(private val versionNotesList: List<TVersionNotes>) :
+class VersionNotesAdapter(private var versionNotesList: List<TVersionNotes>) :
     RecyclerView.Adapter<VersionNotesAdapter.VersionViewHolder>() {
 
     class VersionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -27,7 +27,14 @@ class VersionNotesAdapter(private val versionNotesList: List<TVersionNotes>) :
 
     }
 
+    fun updateVersionNotes(newVersionNotes: List<TVersionNotes>) {
+        versionNotesList = newVersionNotes
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount(): Int {
         return versionNotesList.size
     }
+
+
 }

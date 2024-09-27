@@ -15,7 +15,7 @@ private lateinit var binding: ActivityMainBinding
 
 
         binding.imageViewVersionList.setOnClickListener { view ->
-            val intent: Intent = Intent(this@MainActivity, DisplayVersionList::class.java)
+            val intent: Intent = Intent(this@MainActivity, VersionListDisplayActivity::class.java)
             startActivity(intent)
             Toast.makeText(this@MainActivity, "Opening  Version List ", Toast.LENGTH_SHORT).show()
         }

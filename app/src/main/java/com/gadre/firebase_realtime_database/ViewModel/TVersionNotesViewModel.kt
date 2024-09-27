@@ -13,14 +13,13 @@ class TVersionNotesViewModel(
     private val  tVersionNotesRepository: TVersionNotesRepository
 ) :ViewModel(){
 
-    private val versionNotes = MutableLiveData<List<TVersionNotes>?>()
+     val versionNotesLiveData = MutableLiveData<List<TVersionNotes>?>()
 
     fun fetchVersionDetails(){
         CoroutineScope(Dispatchers.IO).launch {
             val notes = tVersionNotesRepository.fetchVersionNotes()
-
             withContext(Dispatchers.Main){
-                versionNotes.value=notes
+                versionNotesLiveData.value=notes
             }
         }
     }

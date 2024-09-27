@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.database.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -70,7 +71,7 @@ dependencies {
 
     // Glide for image loading and caching
     implementation("com.github.bumptech.glide:glide:4.15.1")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1") // For Java users
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
 
 
     // Retrofit for REST API calls
@@ -79,6 +80,7 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
     implementation("com.google.firebase:firebase-database")
+    implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
 
 
 

@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Firebase_Realtime_Database"
         tools:targetApi="31">
         <activity
-            android:name=".Activitys.DisplayVersionList"
+            android:name=".Activitys.VersionListDisplayActivity"
             android:exported="false" />
         <activity
             android:name=".Activitys.MainActivity"
