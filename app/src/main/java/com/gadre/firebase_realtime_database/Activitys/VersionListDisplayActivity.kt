@@ -5,27 +5,24 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gadre.firebase_realtime_database.Adapters.VersionNotesAdapter
-import com.gadre.firebase_realtime_database.Models.TVersionNotes
 import com.gadre.firebase_realtime_database.Repositories.TVersionNotesRepository
 import com.gadre.firebase_realtime_database.ViewModel.TVersionNotesViewModel
 import com.gadre.firebase_realtime_database.databinding.ActivityDisplayVersionListBinding
 
 
 class VersionListDisplayActivity : AppCompatActivity() {
-    private lateinit var activityDisplayVersionListbinding: ActivityDisplayVersionListBinding
+    private lateinit var binding: ActivityDisplayVersionListBinding
     private lateinit var versionNotesAdapter: VersionNotesAdapter
     private lateinit var tVersionNotesViewModel: TVersionNotesViewModel
     private lateinit var tVersionNotesRepository:TVersionNotesRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityDisplayVersionListbinding =
+        binding =
             ActivityDisplayVersionListBinding.inflate(layoutInflater)
-        setContentView(activityDisplayVersionListbinding.root)
+        setContentView(binding.root)
 
 
 
@@ -34,10 +31,10 @@ class VersionListDisplayActivity : AppCompatActivity() {
         tVersionNotesViewModel.fetchVersionDetails()
 
         versionNotesAdapter = VersionNotesAdapter(emptyList())
-        activityDisplayVersionListbinding.versionListRecyclerView.adapter = versionNotesAdapter
-        activityDisplayVersionListbinding.versionListRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.versionListRecyclerView.adapter = versionNotesAdapter
+        binding.versionListRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        val toolbar = activityDisplayVersionListbinding.toolbar
+        val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
 
         val actionBar = supportActionBar
@@ -48,6 +45,7 @@ class VersionListDisplayActivity : AppCompatActivity() {
 
         //function calls
         initObserver()
+        addButtonLstener()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -68,6 +66,13 @@ class VersionListDisplayActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Unable to fetch version details!", Toast.LENGTH_LONG).show()
             }
+        }
+    }
+
+
+    private  fun  addButtonLstener(){
+        binding.addNotesButton.setOnClickListener {
+
         }
     }
 }

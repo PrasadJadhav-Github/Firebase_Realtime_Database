@@ -24,7 +24,7 @@ class VersionNotesAdapter(private var versionNotesList: List<TVersionNotes>) :
     override fun onBindViewHolder(holder: VersionViewHolder, position: Int) {
         val versionNote = versionNotesList[position]
         holder.binding.textViewVersionNumber.text=versionNote.versionName
-        holder.binding.textViewNoteDescription.text=versionNote.note.toString()
+        holder.binding.textViewNoteDescription.text= versionNote.note?.joinToString("\n")
 
 
     }
