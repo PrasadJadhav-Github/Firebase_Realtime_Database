@@ -2,6 +2,7 @@ package com.gadre.firebase_realtime_database.Activitys
 
 import android.R
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gadre.firebase_realtime_database.Adapters.VersionNotesAdapter
+import com.gadre.firebase_realtime_database.Models.TVersionNotes
 import com.gadre.firebase_realtime_database.Repositories.TVersionNotesRepository
 import com.gadre.firebase_realtime_database.ViewModel.TVersionNotesViewModel
 import com.gadre.firebase_realtime_database.databinding.ActivityDisplayVersionListBinding
@@ -31,10 +33,9 @@ class VersionListDisplayActivity : AppCompatActivity() {
         tVersionNotesViewModel=TVersionNotesViewModel(tVersionNotesRepository )
         tVersionNotesViewModel.fetchVersionDetails()
 
-        versionNotesAdapter = VersionNotesAdapter(arrayListOf())
+        versionNotesAdapter = VersionNotesAdapter(emptyList())
         activityDisplayVersionListbinding.versionListRecyclerView.adapter = versionNotesAdapter
-        activityDisplayVersionListbinding.versionListRecyclerView.layoutManager =
-            LinearLayoutManager(this)
+        activityDisplayVersionListbinding.versionListRecyclerView.layoutManager = LinearLayoutManager(this)
 
         val toolbar = activityDisplayVersionListbinding.toolbar
         setSupportActionBar(toolbar)
@@ -61,6 +62,7 @@ class VersionListDisplayActivity : AppCompatActivity() {
 
     private fun initObserver() {
         tVersionNotesViewModel.versionNotesLiveData.observe(this) { versionNotes ->
+            Log.d("VersionListDisplayActivity", "Received version notes: $versionNotes")
             if (versionNotes != null) {
                 versionNotesAdapter.updateVersionNotes(versionNotes)
             } else {

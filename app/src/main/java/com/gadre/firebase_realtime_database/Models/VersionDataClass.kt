@@ -2,12 +2,10 @@ package com.gadre.firebase_realtime_database.Models
 
 
 data class TVersionNotes(
-    val versionNmae: String,
-    val note: List<Note>?
+    val versionName: String,
+    val note: List<String>?
 )
 
-data class Note(
-    val status: String
-)
+
 
 

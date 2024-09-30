@@ -22,8 +22,10 @@ class VersionNotesAdapter(private var versionNotesList: List<TVersionNotes>) :
     }
 
     override fun onBindViewHolder(holder: VersionViewHolder, position: Int) {
-        holder.binding.textViewVersionName.text=versionNotesList[position].versionNmae
-        holder.binding.textViewNote.text= versionNotesList[position].note.toString()
+        val versionNote = versionNotesList[position]
+        holder.binding.textViewVersionNumber.text=versionNote.versionName
+        holder.binding.textViewNoteDescription.text=versionNote.note.toString()
+
 
     }
 

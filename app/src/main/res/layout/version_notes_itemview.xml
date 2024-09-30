@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <TextView
-        android:id="@+id/textViewVersionName"
+        android:id="@+id/textViewVersionNumber"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:hint="version name"
+        android:text="version Number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textViewNote"
+        android:id="@+id/textViewNoteDescription"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:hint="count"
-        app:layout_constraintTop_toBottomOf="@+id/textViewVersionName"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_height="50dp"
+        android:text="Description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewVersionNumber" />
 </androidx.constraintlayout.widget.ConstraintLayout>
